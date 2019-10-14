@@ -12,8 +12,19 @@ function createWindow() {
         height: 680,
     });
 
+    let watcher;
+    if (process.env.NODE_ENV === 'development') {
+        watcher = require('chokidar').watch(path.join(__dirname, '../public/bundle.js'), { ignoreInitial: true });
+        watcher.on('change', () => {
+            mainWindow.reload();
+        });
+    }
+
     mainWindow.loadURL(`file://${path.join(__dirname, '../public/index.html')}`);
     mainWindow.on('closed', () => {
+        if (watcher) {
+            watcher.close();
+        }
         mainWindow = null;
     });
 }
