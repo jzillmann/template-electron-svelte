@@ -1,4 +1,4 @@
-appId: "my.app.id"
+appId: "io.morethan.template-electron-svelte"
 # Package app code into a asar archive. Set to false to debug issues.
 asar: true
 # Mac OS configuration
