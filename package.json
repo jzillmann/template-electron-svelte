@@ -10,13 +10,14 @@
     "electron-dev": "run-p dev pure-electron-dev",
     "dist-darwin": "run-s build pure-dist-darwin",
     "pure-electron": "electron .",
-    "pure-electron-dev": "NODE_ENV=development electron .",
+    "pure-electron-dev": "cross-env NODE_ENV=development electron .",
     "pure-dist-darwin": "electron-builder --dir --mac --config electron-builder.yml"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
     "chokidar": "^3.2.1",
+    "cross-env": "^7.0.2",
     "electron": "^6.0.12",
     "electron-builder": "^21.2.0",
     "npm-run-all": "^4.1.5",
